@@ -29,7 +29,7 @@ int main(){
   second->next = third;
 
   third->data = 22;
-  third->next = NULL;
+  third->next = head;
 
   linkedList(head);
   return 0;
