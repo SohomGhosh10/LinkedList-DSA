@@ -2,8 +2,8 @@
 #include<stdlib.h>
 
 struct Node{
-    struct Node * next;
-    struct Node * prev;
+    struct Node * next; // pointer for traversing next elements
+    struct Node * prev; // pointer for traversing previous elements
     int data;
 };
 
@@ -19,13 +19,13 @@ struct Node * insertAtEnd(struct Node * head , int data){
     struct Node * p = head;
     ptr->data = data;
     
-    while(p->next!=NULL){
-        p = p->next;
+    while(p->next!=NULL){ 
+        p = p->next; // 
     }
 
-    ptr->prev = p;
-    p->next = ptr;
-    ptr->next = NULL;
+    ptr->prev = p; // linking previous elements
+    p->next = ptr; // linking next elements
+    ptr->next = NULL; // connecting to NULL
 
     return head;
 }
@@ -41,6 +41,8 @@ int main(){
     second = malloc(sizeof(struct Node));
     third = malloc(sizeof(struct Node));
 
+    // Linking the nodes from head to NULL
+    
     head->data = 10;
     head->prev = NULL;
     head->next = first;
@@ -58,11 +60,11 @@ int main(){
     third->data = 40;
 
     printf("\nbefore insertion\n");
-    linkedList(head);
+    linkedList(head); //Prints previous elements
 
     printf("\nAfter insertion\n");
-    head = insertAtEnd(head , 5);
-    linkedList(head);
+    head = insertAtEnd(head , 5); // insertion at end
+    linkedList(head); // Print new list
 
     return 0;
 }
