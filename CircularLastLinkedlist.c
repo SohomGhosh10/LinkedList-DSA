@@ -11,24 +11,30 @@ void linkedList(struct Node * head){
     printf("Elements are %d\n",ptr->data);
     ptr = ptr->next;
     do{
-          printf("Elements are %d\n",ptr->data);
+          printf("Elements are %d\n",ptr->data); // at first print
     ptr = ptr->next; 
-    }while(ptr!=head);
+    }while(ptr!=head); // condition check
 }
 
 struct Node * insertAtEnd(struct Node * head , int data){
     struct Node * ptr = malloc(sizeof(struct Node));
     ptr->data = data;
-    struct Node * p = head->next;
+    struct Node * p = head->next; // points the node after head
 
     while(p->next!=head){
         p = p->next;
     }
+
+  // Linking 
+  
     p->next = ptr;
     ptr->next = head;
     return head;
 }
 int main(){
+
+  // Node creation
+  
   struct Node * head;
   struct Node * second;
   struct Node * third;
@@ -47,10 +53,10 @@ int main(){
   third->next = head;
 
   printf("\nBefore insertion\n");
-  linkedList(head);
+  linkedList(head); // Before insertion
 
   printf("\nAfter insertion\n");
   head = insertAtEnd(head , 5);
-  linkedList(head);
+  linkedList(head); // After insertion
   return 0;
 }
