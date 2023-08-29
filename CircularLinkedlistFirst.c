@@ -8,12 +8,12 @@ struct Node{
 
 void linkedList(struct Node * head){
     struct Node * ptr = head;
-    printf("Elements are %d\n",ptr->data);
-    ptr = ptr->next;
-    do{
-          printf("Elements are %d\n",ptr->data);
+    printf("Elements are %d\n",ptr->data); 
     ptr = ptr->next; 
-    }while(ptr!=head);
+    do{
+          printf("Elements are %d\n",ptr->data); // at first print then check condition
+    ptr = ptr->next; 
+    }while(ptr!=head); // condition
 }
 
 struct Node * insertAtFirst(struct Node * head , int data){
@@ -21,15 +21,21 @@ struct Node * insertAtFirst(struct Node * head , int data){
     ptr->data = data;
     struct Node * p = head->next;
 
-    while(p->next!=head){
+// loop condion 
+    while(p->next!=head){ 
         p = p->next;
     }
+// creating link
+  
     p->next = ptr;
     ptr->next = head;
     head = ptr;
     return head;
 }
 int main(){
+
+  // Node creation
+  
   struct Node * head;
   struct Node * second;
   struct Node * third;
@@ -48,10 +54,10 @@ int main(){
   third->next = head;
 
   printf("\nBefore insertion\n");
-  linkedList(head);
+  linkedList(head); // previous elements
 
   printf("\nAfter insertion\n");
   head = insertAtFirst(head , 5);
-  linkedList(head);
+  linkedList(head); // after insertion
   return 0;
 }
