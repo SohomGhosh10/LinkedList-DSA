@@ -2,32 +2,34 @@
 #include<stdlib.h>
 
 struct Node{
-    struct Node * prev;
-    struct Node * next;
+    struct Node * prev; // previous pointer
+    struct Node * next; // next pointer
     int data;
 };
 
 void linkedList(struct Node * ptr){
     while(ptr!=NULL){
         printf("Elements are %d\n",ptr->data);
-        ptr = ptr->next;
+        ptr = ptr->next; // traversing elements
     }
 }
 
 struct Node  * insertAtFirst(struct Node * head , int data){
     struct Node * ptr = malloc(sizeof(struct Node));
     ptr->data = data;
-    ptr->prev = NULL;
+    ptr->prev = NULL; 
     ptr->next = head;
     return ptr;
 }
 
 int main(){
+    // Node creation
     struct Node * head = malloc(sizeof(struct Node));
     struct Node * p = malloc(sizeof(struct Node));
     struct Node * q = malloc(sizeof(struct Node));
     struct Node * r = malloc(sizeof(struct Node));
 
+    // linking the nodes
     head->prev = NULL;
     head->data = 10;
     head->next = p;
@@ -45,11 +47,11 @@ int main(){
     r->next = NULL;
 
     printf("\nBefore insertion\n");
-    linkedList(head);
+    linkedList(head); // previous elements
 
     printf("\nAfter insertion\n");
     head = insertAtFirst(head , 5);
-    linkedList(head);
+    linkedList(head); // after insertion
     
     return 0;
 }
