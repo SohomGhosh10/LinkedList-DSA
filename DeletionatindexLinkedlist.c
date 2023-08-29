@@ -9,26 +9,28 @@ struct Node{
 void linkedList(struct Node * ptr){
     while(ptr!=NULL){
         printf("Elements are %d\n",ptr->data);
-        ptr = ptr->next;
+        ptr = ptr->next; // Traversal
     }
 }
 
 struct Node * deletionAtIndex(struct Node * head , int index){
-    struct Node * p = head;
-    struct Node * q = head->next;
+    struct Node * p = head; // pointing head
+    struct Node * q = head->next; // pointing after head
 
     for(int i = 0; i < index - 1; i++){
         p = p->next;
         q = q->next;
     }
-
+    
     p->next = q->next;
-    free(q);
+    free(q); // deleting the node
     return head;
 }
 
 int main(){
-     struct Node * head;
+    // creating nodes
+    
+  struct Node * head;
   struct Node * second;
   struct Node * third;
 
@@ -46,11 +48,11 @@ int main(){
   third->next = NULL;
 
   printf("Linkedlist before insertion\n");
-  linkedList(head);
+  linkedList(head); // previous elements
   
   head = deletionAtIndex(head ,2);
   printf("Linkedlist after deletion\n");
-  linkedList(head);
+  linkedList(head); // after deletion
 
   return 0;
 }
