@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//intialize front and rear pointers
+
 struct Node* f = NULL;
 struct Node* r = NULL;
 
@@ -9,13 +11,15 @@ struct Node{
     struct Node* next;
 };
 
-void linkedList(struct Node* ptr){
+void linkedList(struct Node* ptr){ // linked list traversal
     printf("Printing the elements of linkedlist\n");
     while(ptr!=NULL){
         printf("Elements are %d\n",ptr->data);
         ptr = ptr->next;
     }
 }
+
+// Enqueue operation
 
 void enqueue(int val){
     struct Node* p = (struct Node*)malloc(sizeof(struct Node));
@@ -36,10 +40,16 @@ void enqueue(int val){
 
 int main(){
 
+    // print previous queue
     linkedList(f);
+
+    //Enqueuing elements
+    
     enqueue(34);
     enqueue(64);
     enqueue(98);
+
+    // print updated queue
     linkedList(f);
     return 0;
 }
