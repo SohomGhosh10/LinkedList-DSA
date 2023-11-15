@@ -41,6 +41,7 @@ void printList(struct Node* head) {
 
 
 int main() {
+    // inserting the nodes
     struct Node* head = NULL;
     insertAtFirst(&head, 4);
     insertAtFirst(&head, 3);
