@@ -1,12 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 struct Node
 {
     int data;
     struct Node*pre;
     struct Node*next;
 };
-
 void doubly_Traverse(struct Node*ptr)
 {
     while(ptr!=NULL){
@@ -19,28 +19,25 @@ struct Node*delete_At_End(struct Node *head)
 {
     struct Node*p=head;
     struct Node*q=head->next;
-    while(q->next!=NULL) // Traversing Upto Last
+    while(q->next!=NULL)
     {
         q=q->next;
         p=p->next;
     }
     p->next=NULL;
-    free(q); // Deleting last node
+    free(q);
     return head;
 };
 
 int main()
 {
-    // Creating nodes
-    
+
     struct Node*head=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n2=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n3=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n4=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n5=(struct Node*)malloc(sizeof(struct Node));
 
-    // Linking the nodes
-    
     head->pre=NULL;
     head->data=10;
     head->next=n2;
@@ -61,13 +58,10 @@ int main()
     n5->data=50;
     n5->next=NULL;
 
-    printf("\nBefore Deletion\n");
-    doubly_Traverse(head); // Printing before elements
+    doubly_Traverse(head);
 
 
-    printf("\n\nAfter Deleting Last Node\n"); 
+    printf("\n\nAfter Deleting Last Node\n");
     head=delete_At_End(head);
-    doubly_Traverse(head); // Printing new elements 
-
-    return 0;
+    doubly_Traverse(head);
 }

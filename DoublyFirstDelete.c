@@ -6,35 +6,31 @@ struct Node
     struct Node*pre;
     struct Node*next;
 };
-
 void doubly_Traverse(struct Node*ptr)
 {
     while(ptr!=NULL){
-            printf("Element:%d\n",ptr->data); 
+            printf("Element:%d\n",ptr->data);
         ptr=ptr->next;
     }
 }
 
 struct Node* delete_At_Begain(struct Node*head)
 {
-    struct Node*q=head; 
-    head=head->next; // Transferes the head to the next node
-    free(q); // Delete the first node
+    struct Node*q=head;
+    head=head->next;
+    free(q);
     return head;
 };
 
 int main()
 {
-    // Node creation
-    
+    int d1,d2,n,d3;
     struct Node*head=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n2=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n3=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n4=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n5=(struct Node*)malloc(sizeof(struct Node));
 
-    // Linking the nodes 
-    
     head->pre=NULL;
     head->data=10;
     head->next=n2;
@@ -55,10 +51,9 @@ int main()
     n5->data=50;
     n5->next=NULL;
 
-    printf("\nBefore deleting\n"); // Before deleting
     doubly_Traverse(head);
 
-    printf("\n\nAfter Deleting First Node\n"); // After deleting
+    printf("\n\nAfter Deleting First Node\n");
     head=delete_At_Begain(head);
     doubly_Traverse(head);
 

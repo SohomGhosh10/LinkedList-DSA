@@ -1,13 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
-
 struct Node
 {
     int data;
     struct Node*pre;
     struct Node*next;
 };
-
 void doubly_Traverse(struct Node*ptr)
 {
     while(ptr!=NULL){
@@ -15,27 +13,69 @@ void doubly_Traverse(struct Node*ptr)
         ptr=ptr->next;
     }
 }
-
-struct Node*delete_At_Index(struct Node*head, int index) // Delete at index
+struct Node* insert_At_Begain(struct Node*head,int data)
 {
-    struct Node*p=head; // pointing to head
-    struct Node*q=head->next; // pointing the node next to head
+    struct Node*p=(struct Node*)malloc(sizeof(struct Node));
+    p->data=data;
+    p->pre=NULL;
+    p->next=head;
+    return p;
+};
 
-    int i = 1;
-    while(i != index - 1)
+struct Node* insert_At_Index(struct Node*head,int data,int index)
+{
+    struct Node*r=head->next;
+    struct Node*p=(struct Node*)malloc(sizeof(struct Node));
+    struct Node*q=head;
+    p->data=data;
+    int i=1;
+    while(i!=index-1)
     {
-        p = p->next; 
-        q = q->next;
+        q=q->next;
+        r=r->next;
         i++;
     }
-    p -> next = q -> next; 
-    free(q); // deleting the node at prefered index
+    
+    p->next=r;
+    r->pre=p;
+    q->next=p;
+    p->pre=q;
+    return head;
+};
+struct Node* insert_At_End(struct Node*head,int data)
+{
+    struct Node*q=head;
+    struct Node*p=(struct Node*)malloc(sizeof(struct Node));
+    p->data=data;
+    while(q->next!=NULL)
+    {
+        q=q->next;
+    }
+    q->next=p;
+    p->pre=q;
+    p->next=NULL;
+    return head;
+};
+
+struct Node*delete_At_Index(struct Node*head, int index)
+{
+    struct Node*p=head;
+    struct Node*q=head->next;
+
+    int i=1;
+    while(i!=index-1)
+    {
+        p=p->next;
+        q=q->next;
+        i++;
+    }
+    p->next=q->next;
+    free(q);
     return head;
 };
 
 int main()
 {
-    // Creating Node
     
     struct Node*head=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n2=(struct Node*)malloc(sizeof(struct Node));
@@ -43,8 +83,6 @@ int main()
     struct Node*n4=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n5=(struct Node*)malloc(sizeof(struct Node));
 
-    // Linking the nodes
-    
     head->pre=NULL;
     head->data=10;
     head->next=n2;
@@ -65,12 +103,11 @@ int main()
     n5->data=50;
     n5->next=NULL;
 
-    printf("\nBefore Deleting\n"); 
-    doubly_Traverse(head); // Before Deletion
-    
-    printf("After Deleting Index Node:\n");
-    head=delete_At_Index(head, 3); // After deletion
     doubly_Traverse(head);
 
-    return 0;
+
+    printf("After Deleting Index Node:\n");
+    head=delete_At_Index(head, 3);
+    doubly_Traverse(head);
+    
 }
