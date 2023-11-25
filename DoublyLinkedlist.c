@@ -13,7 +13,7 @@ void doubly_Traverse(struct Node*ptr)
         ptr=ptr->next;
     }
 }
-struct Node* insert_At_Begain(struct Node*head,int data)
+struct Node* insert_At_Begin(struct Node*head,int data)
 {
     struct Node*p=(struct Node*)malloc(sizeof(struct Node));
     p->data=data;
