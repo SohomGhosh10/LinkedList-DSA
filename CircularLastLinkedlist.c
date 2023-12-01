@@ -39,10 +39,14 @@ int main(){
   struct Node * second;
   struct Node * third;
 
+  // Node creation
+
   head = malloc(sizeof(struct Node));
   second = malloc(sizeof(struct Node));
   third = malloc(sizeof(struct Node));
 
+  // Nodes linking
+  
   head->data = 7;
   head->next = second;
 
