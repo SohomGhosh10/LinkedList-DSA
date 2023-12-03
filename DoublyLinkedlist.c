@@ -6,14 +6,14 @@ struct Node
     struct Node*pre;
     struct Node*next;
 };
-void doubly_Traverse(struct Node*ptr)
+void doubly_Traverse(struct Node*ptr) // Linkedlist traversal
 {
     while(ptr!=NULL){
-            printf("Element:%d\n",ptr->data);
+            printf("Element:%d\n",ptr->data); // Data print
         ptr=ptr->next;
     }
 }
-struct Node* insert_At_Begin(struct Node*head,int data)
+struct Node* insert_At_Begin(struct Node*head,int data) // Insert at first
 {
     struct Node*p=(struct Node*)malloc(sizeof(struct Node));
     p->data=data;
@@ -22,7 +22,7 @@ struct Node* insert_At_Begin(struct Node*head,int data)
     return p;
 };
 
-struct Node* insert_At_Index(struct Node*head,int data,int index)
+struct Node* insert_At_Index(struct Node*head,int data,int index) // insert at index
 {
     struct Node*r=head->next;
     struct Node*p=(struct Node*)malloc(sizeof(struct Node));
@@ -41,7 +41,7 @@ struct Node* insert_At_Index(struct Node*head,int data,int index)
     p->pre=q;
     return head;
 };
-struct Node* insert_At_End(struct Node*head,int data)
+struct Node* insert_At_End(struct Node*head,int data) // insert t end
 {
     struct Node*q=head;
     struct Node*p=(struct Node*)malloc(sizeof(struct Node));
@@ -56,14 +56,14 @@ struct Node* insert_At_End(struct Node*head,int data)
     return head;
 };
 
-struct Node* delete_At_Begain(struct Node*head)
+struct Node* delete_At_Begain(struct Node*head) // delete at first
 {
     struct Node*q=head;
     head=head->next;
     free(q);
     return head;
 };
-struct Node*delete_At_Index(struct Node*head,int index)
+struct Node*delete_At_Index(struct Node*head,int index) // delete t index
 {
     struct Node*p=head;
     struct Node*q=head->next;
@@ -80,7 +80,7 @@ struct Node*delete_At_Index(struct Node*head,int index)
     return head;
 };
 
-struct Node*delete_At_End(struct Node *head)
+struct Node*delete_At_End(struct Node *head) // delete at end
 {
     struct Node*p=head;
     struct Node*q=head->next;
@@ -96,12 +96,14 @@ struct Node*delete_At_End(struct Node *head)
 int main()
 {
     int d1,d2,n,d3;
+    // Node creation
     struct Node*head=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n2=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n3=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n4=(struct Node*)malloc(sizeof(struct Node));
     struct Node*n5=(struct Node*)malloc(sizeof(struct Node));
 
+    // Linking nodes
     head->pre=NULL;
     head->data=10;
     head->next=n2;
