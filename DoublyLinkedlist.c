@@ -6,7 +6,7 @@ struct Node
     struct Node*pre;
     struct Node*next;
 };
-void doubly_Traverse(struct Node*ptr) // Linkedlist traversal
+void doubly_Traverse(struct Node*ptr) // Linkedlist traversal.
 {
     while(ptr!=NULL){
             printf("Element:%d\n",ptr->data); // Data print
