@@ -17,7 +17,7 @@ struct Node* CreateNode(int data){
 void inOrder(struct Node* root){
     if (root != NULL)
     {
-        inOrder(root->left);  left -> print -> right
+        inOrder(root->left);  // left -> print -> right
         printf("Data is %d\n",root->data);
         inOrder(root->right);
     }
