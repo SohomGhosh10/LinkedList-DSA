@@ -7,7 +7,7 @@ struct Node {
     struct Node* next;
 };
 
-// Function to insert a new node at the beginning of the linked list
+// Function to insert a new node at the beginning of the linked list.
 void push(struct Node** head_ref, int new_data) {
     struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
     new_node->data = new_data;
