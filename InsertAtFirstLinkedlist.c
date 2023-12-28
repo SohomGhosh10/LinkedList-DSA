@@ -17,6 +17,7 @@ struct Node * insertFirst(struct Node * head , int data){
     struct Node * ptr = malloc(sizeof(struct Node));
     ptr->next = head;
     ptr->data = data;
+    head = ptr;
 }
 
 int main(){
