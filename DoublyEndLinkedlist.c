@@ -20,7 +20,7 @@ struct Node * insertAtEnd(struct Node * head , int data){
     ptr->data = data;
     
     while(p->next!=NULL){ 
-        p = p->next; // 
+        p = p->next; 
     }
 
     ptr->prev = p; // linking previous elements
