@@ -13,7 +13,7 @@ void linkedList(struct Node * head){
     do{
           printf("Elements are %d\n",ptr->data); // at first print
     ptr = ptr->next; 
-    }while(ptr!=head); // do-while loop conditionn
+    }while(ptr!=head); // do-while loop condition
 }
 
 struct Node * insertAtIndex(struct Node * head , int data ,int index){
